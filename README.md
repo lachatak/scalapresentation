@@ -1,4 +1,4 @@
-Lession 1
+# Lession 1 #
 
 - without semicolon
 - variable types (var, val), type inference
@@ -9,19 +9,17 @@ Lession 1
 - case class, case object, sealed trait
 - pattern matching, partial functions
 - collection operations, map, flatMap, groupBy, filter
--
 
-Lession 2
+# Lession 2 #
 
 - for comprehension
 - using list, optional in for comprehension
 - using scala with java
--
 
-Lession 3
+# Lession 3 # 
 
 - unit testing (scalatest, scalacheck, property testing)
 
-Lession 4
+# Lession 4 #
 
 - introduction to akka/actors
