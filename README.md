@@ -16,7 +16,7 @@
 - using list, optional in for comprehension
 - using scala with java
 
-# Lession 3 # 
+# Lession 3# 
 
 - unit testing (scalatest, scalacheck, property testing)
 
