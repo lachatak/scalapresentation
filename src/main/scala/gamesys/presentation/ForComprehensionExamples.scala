@@ -7,13 +7,26 @@ object ForComprehensionExamples extends App {
 
   val numbers = 1 to 5
 
-  val simpleCopyResult = for {n <- numbers} yield n
+  val simpleCopyResult = for {
+    n <- numbers
+  } yield n
   println("simpleCopyResult: " + simpleCopyResult)
 
-  val mapResult = for {n <- numbers} yield n * 2
+  val mapResult = for {
+    n <- numbers
+  } yield n * 2
   println("mapResult: " + mapResult)
 
-  val result = for {n <- numbers if n > 3} yield n * 2
+  val text = "4"
+  val mapResult2 = for {
+    n <- numbers
+    m = Integer.parseInt(text)
+  } yield n * m
+  println("mapResult2: " + mapResult2)
+
+  val result = for {
+    n <- numbers if n > 3
+  } yield n * 2
   println("result: " + result)
 
   //combine two lists
