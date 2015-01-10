@@ -11,12 +11,14 @@ public class JMoney {
 
     }
     public JMoney(String currency) {
-        this.amount = 1;
-        this.currency = currency;
+        this(0,"USD");
     }
     public JMoney(Integer amount) {
-        this.amount = amount;
-        this.currency = "USD";
+        this(amount,"USD");
+    }
+
+    public JMoney() {
+        this(0,"USD");
     }
 
     public Integer getAmount() {

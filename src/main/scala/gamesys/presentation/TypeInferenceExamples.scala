@@ -1,6 +1,6 @@
 package gamesys.presentation
 
-object TypeInferenceExample extends App {
+object TypeInferenceExamples extends App {
 
   val name = "Joe"
 
