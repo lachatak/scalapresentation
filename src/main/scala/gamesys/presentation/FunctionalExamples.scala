@@ -21,7 +21,7 @@ object FunctionalExamples extends App {
   println(moneys.groupBy(_.currency))
 
   //FOLD-LEFT  ----------------------------------------
-  def add(m1: SMoney, m2: SMoney) = SMoney(m1.amount + m2.amount, m1.currency)
+  def add(m1: SMoney, m2: SMoney) = m1.copy(amount = m1.amount + m2.amount)
 
   def dollars = List(SMoney(1), SMoney(2), SMoney(3))
 
