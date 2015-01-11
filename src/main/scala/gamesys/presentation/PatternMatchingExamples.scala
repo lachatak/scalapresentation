@@ -36,21 +36,21 @@ object PatternMatchingExamples extends App {
     val name: String
   }
 
-  case class BoughtInEvent(name: String, amount: SMoney) extends Event
+  case class BoughtInEvent(name: String, amount: CaseClassMoney) extends Event
 
   case class BustOutEvent(name: String) extends Event
 
   //no need for explicit casting
   //deconstruction
   def printEvent(event: Event) = event match {
-    case BoughtInEvent(id, SMoney(5, _)) => println(s"${id} has bought in with five something")
+    case BoughtInEvent(id, CaseClassMoney(5, _)) => println(s"${id} has bought in with five something")
     case BoughtInEvent("Joe", amount) => println(s"Joe has bought in with ${amount}")
     case BustOutEvent("Joe") => println("Joe has bust out")
     case _ => println("Something unexpected happened")
   }
 
-  printEvent(BoughtInEvent("Jack", SMoney(5, "GBP")))
-  printEvent(BoughtInEvent("Joe", SMoney()))
+  printEvent(BoughtInEvent("Jack", CaseClassMoney(5, "GBP")))
+  printEvent(BoughtInEvent("Joe", CaseClassMoney()))
   printEvent(BustOutEvent("Joe"))
   printEvent(BustOutEvent("Jack"))
 
