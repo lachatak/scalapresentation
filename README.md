@@ -1,5 +1,22 @@
 # Lession 1 #
 
+ - WeDontNeedMainMethod       M
+ - TypeInferenceExamples      K
+ - TuplesExamples             M
+ - CaseClass                  K
+ - Expressions                K
+ - PatternMatchingExamples    M
+ - ScalaJavaInteropExamples   K
+ - FunctionalExamples         M
+ - OuterAppService            M
+ - ImplicitsExample           K
+
+
+Strech-goal
+- ForComprehensionExamples
+- HOF
+- ControlStructureExample$
+
 - without semicolon
 - variable types (var, val), type inference
 - defining a class, overloaded constructor
