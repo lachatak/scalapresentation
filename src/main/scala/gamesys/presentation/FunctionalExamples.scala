@@ -3,17 +3,17 @@ package gamesys.presentation
 object FunctionalExamples extends App {
 
   val moneys = List(
-    CaseClassMoney(2, "USD")
-    , CaseClassMoney(3, "GBP")
-    , CaseClassMoney(2, "USD")
-    , CaseClassMoney(5, "USD")
-    , CaseClassMoney(23, "GBP"))
+    SMoney(2, "USD")
+    , SMoney(3, "GBP")
+    , SMoney(2, "USD")
+    , SMoney(5, "USD")
+    , SMoney(23, "GBP"))
 
   //FILTER ----------------------------------------
   println(moneys.filter(_.currency == "USD"))
 
   //MAP ----------------------------------------
-  def multiplyBy10(m: CaseClassMoney) = m.copy(amount = m.amount * 10)
+  def multiplyBy10(m: SMoney) = m.copy(amount = m.amount * 10)
 
   println(moneys.map(multiplyBy10))
 
@@ -21,11 +21,11 @@ object FunctionalExamples extends App {
   println(moneys.groupBy(_.currency))
 
   //FOLD-LEFT  ----------------------------------------
-  def add(m1: CaseClassMoney, m2: CaseClassMoney) = m1.copy(amount = m1.amount + m2.amount)
+  def add(m1: SMoney, m2: SMoney) = m1.copy(amount = m1.amount + m2.amount)
 
-  def dollars = List(CaseClassMoney(1), CaseClassMoney(2), CaseClassMoney(3))
+  def dollars = List(SMoney(1), SMoney(2), SMoney(3))
 
-  println(dollars.foldLeft(CaseClassMoney())(add))
+  println(dollars.foldLeft(SMoney())(add))
 
   //combine these
   val sumByCurrency =
@@ -35,11 +35,17 @@ object FunctionalExamples extends App {
       keyVal => {
         val currency = keyVal._1
         val moneysWithThisCurrency = keyVal._2
-        moneysWithThisCurrency.foldLeft(CaseClassMoney(0, currency))(add)
+        moneysWithThisCurrency.foldLeft(SMoney(0, currency))(add)
       }
     }
 
   println(sumByCurrency)
 
 
+  /**
+   * List<Student> students = persons.stream()
+        .filter(p -> p.getAge() > 18)
+        .map(Student::new)
+        .collect(Collectors.toCollection(ArrayList::new));
+   */
 }
