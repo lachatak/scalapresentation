@@ -1,4 +1,4 @@
-# Lession 1 #
+# Lession 1
 
  - WeDontNeedMainMethod       M
  - TypeInferenceExamples      K
@@ -11,32 +11,18 @@
  - OuterAppService            M
  - ImplicitsExample           K
 
-
 Strech-goal
 - ForComprehensionExamples
 - HOF
-- ControlStructureExample$
-
-- without semicolon
-- variable types (var, val), type inference
-- defining a class, overloaded constructor
-- defining a method
-- companion object
+- ControlStructureExample
 - traits
-- case class, case object, sealed trait
-- pattern matching, partial functions
-- collection operations, map, flatMap, groupBy, filter
 
-# Lession 2 #
-
-- for comprehension
-- using list, optional in for comprehension
-- using scala with java
-
-# Lession 3
+# Lession 2
 
 - unit testing (scalatest, scalacheck, property testing)
 
-# Lession 4 #
+# Lession 3 #
 
 - introduction to akka/actors
+
+...
