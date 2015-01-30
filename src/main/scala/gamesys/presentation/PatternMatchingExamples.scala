@@ -69,7 +69,7 @@ object PatternMatchingExamples extends App {
 
   println("--------------------------------")
 
-  val PATTERN = """.*(\d\d)-(\d\d)?-(\d\d\d\d).*""".r
+  val PATTERN = """.*(\d\d)-(\d\d)-(\d\d\d\d).*""".r
 
   def regexMatcher(text: String) = text match {
     case PATTERN(day, month, year) => println(s"$year/$month/$day")

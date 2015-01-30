@@ -4,6 +4,8 @@ import java.util.{ArrayList => JArrayList}
 
 import com.google.common.collect.Lists
 
+import scala.beans.BeanProperty
+
 object ScalaJavaInteropExamples extends App {
 
   import scala.collection.JavaConversions._
@@ -30,4 +32,16 @@ object ScalaJavaInteropExamples extends App {
   println(isGreaterThen5)
   println(filteredScalaList2)
 
+  class Test(amount:Int){
+
+    def printAmount(): Unit ={
+      println(amount)
+    }
+
+    printAmount()
+
+  }
+
+  val t = new Test(4)
+  t.printAmount();
 }
