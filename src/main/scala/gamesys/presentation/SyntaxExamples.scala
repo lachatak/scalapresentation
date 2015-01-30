@@ -10,9 +10,14 @@ object SyntaxExamples extends App {
   text3 = "Jane"
 
   //collections
-  val items = List(1, 2, 3, 4, 5)
+  val itemList = List(1, 2, 3, 4, 5)
+  val itemSet = Set(1, 2, 3, 4, 5)
   val numbers = 1 to 6
   val map = Map("key1" -> 1, "key2" -> 2, "key3" -> 3)
+
+  //tuples
+  val (a,b) = (12,"")
+  val aTuple = (45,"23",true)
 
 
   //methods
