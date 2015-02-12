@@ -34,6 +34,19 @@ object Puzzle extends App {
       }
     }
 
+
+  def steps3(nums: List[Int]): Option[List[Int]] = nums match {
+    case Nil => None
+    case jumpRange::_ if jumpRange >= nums.size => Some(List(jumpRange))
+    case jumpRange::_ => {
+      val rest = for {
+        i <- 1 to jumpRange
+        c <- steps3(nums.drop(i))
+      } yield jumpRange :: c
+      if (rest.isEmpty) None else Some(rest.minBy(_.size))
+    }
+  }
+
   assert(steps(List(4, 0, 5, 0, 1, 2)) == Some(List(4, 5)))
   assert(steps(List()) == None)
   assert(steps(List(0, 1, 2)) == None)

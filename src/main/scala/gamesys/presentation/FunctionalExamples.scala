@@ -15,6 +15,7 @@ object FunctionalExamples extends App {
   //MAP ----------------------------------------
   def multiplyBy10(m: SMoney) = m.copy(amount = m.amount * 10)
 
+
   println(moneys.map(multiplyBy10))
 
   //GROUP-BY ----------------------------------------

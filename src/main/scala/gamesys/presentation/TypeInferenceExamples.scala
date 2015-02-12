@@ -14,6 +14,7 @@ object TypeInferenceExamples extends App {
   val number = 20
 
   //collections
+
   val itemList = List(1, 2, 3, 4, 5)
   val itemSet = Set(1, 2, 3, 4, 5)
   val numbers = 1 to 6
@@ -21,6 +22,9 @@ object TypeInferenceExamples extends App {
   val map: Map[String, String] = Map.empty
   var map2 = Map.empty[String, Int]
   map2 = map2 + (""->1)
+
+
+
   val map3 = Map("key1" -> 1, "key2" -> 2, "key3" -> 3)
 
   val list = List(2, "adad", true)

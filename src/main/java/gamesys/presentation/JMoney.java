@@ -1,5 +1,8 @@
 package gamesys.presentation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class JMoney {
 
     private final Integer amount;
@@ -22,6 +25,10 @@ public class JMoney {
     }
 
     public Integer getAmount() {
+        List<Integer> x = new ArrayList<Integer>();
+        x.add(4);
+        x.add(6);
+
         return amount;
     }
 
