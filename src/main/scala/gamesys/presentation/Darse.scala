@@ -66,7 +66,7 @@ object Darse extends App {
       calculateNewValue(nextDaysDecreasedValue, daysPassedSinceLastCalculation - 1, playedToday)
     }
   }
-  //IMPORTANT: newValue is 0 if the player didn't play, 1 if she did
+  //IMPORTANT: newValue is 0 if the player didn't play that day at all, 1 if she did (even if only 1 hand)
   def calculateNextDaysValue(oldValue: Double, newValue: Double) = NEW_VALUE_WEIGHT * newValue + (1 - NEW_VALUE_WEIGHT) * oldValue
 
   //-------------------------------------------------------------------------------------
