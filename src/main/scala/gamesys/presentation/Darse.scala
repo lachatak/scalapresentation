@@ -7,7 +7,7 @@ object Darse extends App {
   type PlayerId = Long
 
   //----------------- DATA structure we save in DB
-  case class Regularity(val playerId: PlayerId,
+  case class Count(val playerId: PlayerId,
                         val value: Double, // between 0 and 1
                         val timestamp: Long) //last updated timestamp
 
@@ -24,17 +24,39 @@ object Darse extends App {
   }
 
   //this is called when we query the value to calculate Commmunity Score
-  def queryValue(regularity: Regularity, currentTimestamp: Long) = {
+  def queryValue(regularity: Count, currentTimestamp: Long) = {
     val daysPassedSinceLastCalculation = calculateDifferenceInDays(regularity.timestamp, currentTimestamp)
     calculateNewValue(regularity.value, daysPassedSinceLastCalculation, false)
   }
   //------------------------------------------------------------------------------------------
 
 
+
+
+
+  //----------------- AUXILIARY METHODS --------------------------------------------------------------------
+  def updateCounterWhenHandIsPlayed(regularity: Count, currentTimestamp: Long) = {
+
+    //calculate the difference in days between regularity.timestamp and currentTimestamp
+    val daysPassedSinceLastCalculation = calculateDifferenceInDays(regularity.timestamp, currentTimestamp)
+    val newValue = calculateNewValue(regularity.value, daysPassedSinceLastCalculation, true)
+    regularity.copy(value = newValue, timestamp = currentTimestamp)
+  }
+
+  // naive implementation, probably needs refinement
+  def calculateDifferenceInDays(c1: Long, c2: Long):Int = (c2 - c1).toInt / (A_DAY)
+
+  def getFromDB(playerId:PlayerId) = ???
+  def saveToDB(regularity: Count) = ???
+  // -----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
   //----------------- ALGORITHM TO CALCULATE VALUE -----------------------------------
   def calculateNewValue(oldValue: Double, daysPassedSinceLastCalculation: Int, playedToday: Boolean): Double = {
 
-    //println(s"oldValue ${oldValue} , ${daysPassedSinceLastCalculation} days passed, played: ${playedToday}")
     //calculated already, ignore
     if (daysPassedSinceLastCalculation == 0) oldValue
     //played yesterday
@@ -48,27 +70,6 @@ object Darse extends App {
   def calculateNextDaysValue(oldValue: Double, newValue: Double) = NEW_VALUE_WEIGHT * newValue + (1 - NEW_VALUE_WEIGHT) * oldValue
 
   //-------------------------------------------------------------------------------------
-
-
-
-
-
-
-  //----------------- AUXILIARY METHODS --------------------------------------------------------------------
-  def updateCounterWhenHandIsPlayed(regularity: Regularity, currentTimestamp: Long) = {
-
-    //calculate the difference in days between regularity.timestamp and currentTimestamp
-    val daysPassedSinceLastCalculation = calculateDifferenceInDays(regularity.timestamp, currentTimestamp)
-    val newValue = calculateNewValue(regularity.value, daysPassedSinceLastCalculation, true)
-    regularity.copy(value = newValue, timestamp = currentTimestamp)
-  }
-
-  // naive implementation, probably needs refinement
-  def calculateDifferenceInDays(c1: Long, c2: Long):Int = (c2 - c1).toInt / (A_DAY)
-
-  def getFromDB(playerId:PlayerId) = ???
-  def saveToDB(regularity: Regularity) = ???
-  // -----------------------------------------------------------------------------------------------------------------------
 
 
 
